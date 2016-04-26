@@ -6,7 +6,7 @@ var chalk = require('chalk');
 var DATABASE_URI = require(path.join(__dirname, '../env')).DATABASE_URI;
 
 var mongoose = require('mongoose');
-var db = mongoose.connect(DATABASE_URI).connection;
+var db = mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/stackstore').connection;
 
 // Promises returned from mongoose queries/operations are BLUEBIRD promises
 mongoose.Promise = Promise;

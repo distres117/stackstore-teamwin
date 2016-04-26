@@ -5,8 +5,9 @@
   "main": "server/start.js",
   "scripts": {
     "start": "nodemon --watch server -e js,html server/start.js",
-    "postinstall": "gulp build",
-    "test" : "DB_URI=mongodb://localhost/storeTestingDB nodemon --exec mocha tests/server/**/*.js"
+    "postinstall": "gulp build && npm run seed-prod",
+    "test" : "DB_URI=mongodb://localhost/storeTestingDB nodemon --exec mocha tests/server/**/*.js",
+    "seed-prod" : "node server/db/seed/index.js"
   },
   "engines": {
     "node": ">=4.0.0"

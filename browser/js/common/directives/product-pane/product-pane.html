@@ -1,0 +1,11 @@
+<div id="product-pane">
+    <div class="row">
+        <div class="col-md-12">
+            <p ng-show="alert" class="text-center bg-warning">{{alert.message}}</p>
+            <img class="img-thumbnail img-responsive" src="{{product.imageUrl[0]}}">
+          </div>
+    </div>
+    <p>{{product.name}}</p><span>
+      <i class="material-icons" ng-repeat="i in getStars(product) track by $index">star</i></span>
+    <p class="bg-danger">Our price: {{product.price | currency}}</p>
+</div>
