@@ -21,27 +21,29 @@ describe('User Factory', function() {
     expect(UserFactory).to.be.ok;
   });
 
-  describe('getAll', function() {
-    it('calls api/users', function() {
-      $httpBackend.expectGET('/api/users')
-        .respond([]);
-      UserFactory.getAll()
-        .then(function(_users_) {
-          expect(_users_).to.be.an('array');
+  describe('getOne', function() {
+    it('calls /api/users/0', function() {
+      var user;
+      $httpBackend.expectGET('/api/users/0')
+        .respond(users[0]);
+      UserFactory.getOne(0)
+        .then(function(_user_) {
+          user = _user_;
         });
+      $httpBackend.flush();
+      expect(user.email).to.equal('larry@stooges.com');
 
     });
   });
 
-  describe('getOne', function() {
+  describe('delete', function() {
     it('calls api/users/0', function() {
-      $httpBackend.expectGET('/api/users/0')
-        .respond(users[0]);
-      UserFactory.getOne(0)
-        .then(function(user) {
-          expect(user.email).to.equal('larry@stooges.com');
+      $httpBackend.expectDELETE('/api/users/0')
+        .respond(204);
+      UserFactory.delete(0)
+        .then(function(response) {
+          expect(response.status).to.equal(203);
         });
-
     });
   });
 
