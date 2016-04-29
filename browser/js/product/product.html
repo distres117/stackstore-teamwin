@@ -1,0 +1,44 @@
+<div class="container">
+	<div id="product" class="row">
+		<div class="col-xs-4">
+			<div class="form-group col-xs-8 col-xs-offset-2">
+				<h3 class="list-group-item-heading">{{product.name}}</h3>
+				<span>
+				    <i class="material-icons" ng-repeat="i in getStars(product) track by $index">star</i>
+				</span>
+			</div>
+			<img class="img-thumbnail" src="{{product.imageUrl[0]}}">
+		</div>
+		<div class="col-xs-4">
+			<p id="priceLabel">Price: {{product.price | currency}}</p>
+			<p id="availabilityLabel">Currently Available.</p>
+			<p id="remainingStockLabel">{{product.quantity}} left in stock.</p>
+			<p>{{product.description}}</p>
+		</div>
+		<div class="col-xs-4">
+					<span>Quantity: </span>
+					<input type="text" ng-model="quantity" />
+					<!-- <select class="col-xs-4" class="form-control">
+				    	<option ng-repeat="i in getQuantity() track by $index">{{i}}</option>
+				    </select> -->
+			<button type="button" class="btn btn-success btn-lg btn-block" id="cart-btn-lg" ng-click="addToCart(product)">Add to Cart</button>
+		</div>
+	</div>
+	<div id="divider" class="col-xs-12"></div>
+	<div id="reviews" class="row">
+		<h3>Customer Reviews</h3>
+		<div class="list-group">
+			<!-- Will use ng-repeat on product's customer reviews array -->
+			<div class="list-group-item">
+				<h4 class="list-group-item-heading">Review Title 1</h4>
+				<h5 class="list-group-item-heading">By: User 1</h5>
+			    <p class="list-group-item-text">This is the description of the first user's review all written out in text.</p>
+			</div>
+			<div class="list-group-item">
+				<h4 class="list-group-item-heading">Review Title 2</h4>
+				<h5 class="list-group-item-heading">By: User 2</h5>
+			    <p class="list-group-item-text">This is the description of the second user's review all written out in text.</p>
+			</div>
+		</div>
+	</div>
+</div>

@@ -13,7 +13,7 @@ function seed(){
       }
   ];
   console.log('seeding users...');
-  return User.insertMany(users);
+  return User.create(users);
 }
 
 module.exports = seed;

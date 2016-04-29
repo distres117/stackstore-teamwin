@@ -5,7 +5,8 @@
             <img class="img-thumbnail img-responsive" src="{{product.imageUrl[0]}}">
           </div>
     </div>
-    <p>{{product.name}}</p><span>
-      <i class="material-icons" ng-repeat="i in getStars(product) track by $index">star</i></span>
-    <p class="bg-danger">Our price: {{product.price | currency}}</p>
+    <a ui-sref="product-detail({productId: product._id})">{{product.name}}</a><br><span>
+      <i class="material-icons" ng-repeat="i in getStars(product) track by $index">star</i><br></span>
+    <span class="bg-danger">Our price: {{product.price | currency}}</span>
+    <button class="btn btn-success btn-xs pull-right" ng-click="addToCart(product)">Add to cart</button>
 </div>

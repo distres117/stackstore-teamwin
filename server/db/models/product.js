@@ -32,7 +32,7 @@ var productSchema = mongoose.Schema({
    name: String,
    description: String,
    price: Number,
-   qauntity: Number,
+   quantity: Number,
    imageUrl: [String],
    category: [{
        //movie names?

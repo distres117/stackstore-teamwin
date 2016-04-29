@@ -1,12 +1,25 @@
-#home {
-  fullstack-logo {
-    padding-top: 30px;
-    width: 150px;
-    margin: 0 auto;
-  }
-  h1 {
-    margin-top: 40px;
-    text-align: center;
-  }
+div#category-pane{
+  height:125px;
+  width:125px;
+  margin:5px;
+  cursor: pointer;
 }
 
+div#category-panel.col-md-12{
+  display:flex;
+  justify-content:space-between;
+}
+
+#product-panel{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+img#slide-img{
+  width:100%;
+}
+
+div.item.active{
+  max-height:225px;
+}

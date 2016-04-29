@@ -6,8 +6,8 @@
   "scripts": {
     "start": "nodemon --watch server -e js,html server/start.js",
     "postinstall": "gulp build && npm run seed-prod",
-    "test" : "DB_URI=mongodb://localhost/storeTestingDB nodemon --exec mocha tests/server/**/*.js",
-    "seed-prod" : "node server/db/seed/index.js"
+    "test": "DB_URI=mongodb://localhost/storeTestingDB nodemon --exec mocha tests/server/**/*.js",
+    "seed-prod": "node server/db/seed/index.js"
   },
   "engines": {
     "node": ">=4.0.0"
@@ -29,7 +29,7 @@
     "cookie-parser": "^1.3.4",
     "express": "^4.12.0",
     "express-session": "^1.10.3",
-    "gulp": "^3.8.11",
+    "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
     "gulp-concat": "^2.5.2",
     "gulp-eslint": "^0.14.0",

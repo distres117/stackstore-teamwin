@@ -1,4 +1,6 @@
 <section>
+  <div class="page-header">
+    <h3 class="text-center bg-primary">Welcome to our store</h3></div>
   <div class="carousel slide" data-ride="carousel" data-keyboard="false" id="carousel-1">
     <div class="carousel-inner" role="listbox">
         <div class="item active"><img src="assets/img/star_wars_the_force_awakens_stormtroopers-wide.jpg" alt="Slide Image" height="300" id="slide-img"></div>
@@ -14,15 +16,14 @@
         <li data-target="#carousel-1" data-slide-to="2"></li>
     </ol>
   </div>
-  <div class="page-header">
-    <h3 class="text-center bg-primary">Welcome to our store</h3></div>
+
   <div class="container">
     <div class="col-lg-12 col-lg-offset-0 col-md-12">
         <div class="row">
             <div class="col-md-12">
                 <h4 class="text-center bg-primary">Shop by Category</h4></div>
             <div class="col-md-12" id="category-panel">
-                <div id="category-pane" ng-repeat="category in categories">
+                <div id="category-pane" ng-class="{well: activeCat===category._id}" ng-repeat="category in categories" ng-click="filterByCategory(category)">
                   <img class="img-thumbnail" src="{{category.imageUrl}}">
                     <h5 class="text-center text-primary">{{category.name}} </h5>
                 </div>
@@ -30,15 +31,15 @@
             </div>
         </div>
         <div class="input-group">
-            <input class="form-control" type="text" placeholder="Search our products">
+            <input class="form-control" type="text" placeholder="Search our products" ng-model="toSearch">
             <div class="input-group-btn">
                 <button class="btn btn-default" type="button">Go!</button>
             </div>
         </div>
+        <h4>Showing: {{filtered.length || products.length}} products</h3>
     </div>
-    <div class="col-md-12">
-        <product-pane ng-repeat="product in products" product="product"></product-pane>
-    </div>
-  </div>
+    <div class="col-md-12" id="product-panel">
+        <product-pane ng-repeat="product in products | filter: {name: toSearch} as filtered" product="product"></product-pane>
+      </div>
 
 </section>

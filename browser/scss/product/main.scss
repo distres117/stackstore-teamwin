@@ -1,0 +1,38 @@
+#product {
+	padding-bottom: 25px;
+
+	div .form-inline {
+		padding-top: 25px;
+	}
+
+	#cart-btn-lg{
+		margin-top: 10px;
+	}
+
+	#priceLabel {
+		font-size: 20px;
+		padding-top: 25px;
+	}
+
+	#availabilityLabel {
+		font-size: 20px;
+		color: green;
+	}
+
+	#remainingStockLabel {
+		padding-bottom: 5px;
+		color: orange;
+	}
+}
+
+#divider {
+	background-color: gray;
+	height: 1px;
+}
+#reviews {
+	padding-top: 25px;
+
+	h3 {
+		padding-bottom: 15px;
+	}
+}

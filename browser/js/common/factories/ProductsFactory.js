@@ -11,7 +11,7 @@ app.factory('ProductsFactory', function($http){
 	ProductsFactory.fetchById = function(id){
 		return $http.get('/api/products/' + id)
 		.then(function(response){
-			return response;
+			return response.data;
 		});
 	};
 

@@ -1,0 +1,52 @@
+
+<div class="container">
+    <h3>Shopping Cart</h3>
+    <div class="col-md-12" ng-show="cart.items.length">
+        <hr>
+        <div class="row">
+            <div class="col-md-3">
+                <h5>Details </h5></div>
+            <div class="col-md-5">
+                <h5 class="text-right">Price </h5></div>
+            <div class="col-md-3">
+                <h5 class="text-right">Quantity </h5></div>
+        </div>
+    </div>
+    <div class="col-md-12" id="product-row" ng-repeat="item in cart.items">
+        <hr>
+        <div class="row">
+            <div class="col-md-3"><img class="img-thumbnail pull-left" src="{{item.product.imageUrl[0]}}"></div>
+            <div class="col-md-3 col-md-offset-0">
+                <a ui-sref="product-detail({productId: item.product._id})">{{item.product.name}}</a>
+                <p class="text-success">In-Stock </p>
+                <button class="btn btn-danger btn-xs" ng-click="remove($index)" type="button">Remove from cart</button>
+            </div>
+            <div class="col-md-2 col-md-offset-0">
+                <h4 class="text-right text-danger">{{item.price | currency}} </h4></div>
+            <div class="col-md-3 pull-right"><i ng-click="increment($index)" class="glyphicon glyphicon-arrow-up"></i><i ng-click="decrement($index)" class="glyphicon glyphicon-arrow-down"></i>
+                <input class="input-sm" type="text" readonly value="{{item.quantity}}">
+            </div>
+        </div>
+        <hr>
+    </div>
+    <div class="well" ng-show="!cart.items.length">
+      <h4>There are no items in your cart</h4>
+    </div>
+    <div class="col-md-12 col-md-offset-0">
+        <h4 class="text-right">Subtotal ({{cart.items.length}} items) : {{subtotal() | currency}}</h4></div>
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Shipping Information</h3></div>
+            <div class="panel-body">
+                <form><span>Email </span>
+                    <input class="form-control" type="text"><span>Address </span>
+                    <input class="form-control" type="text">
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <button class="btn btn-warning btn-lg pull-right" type="button">Submit Order</button>
+    </div>
+</div>

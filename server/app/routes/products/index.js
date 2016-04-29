@@ -21,12 +21,13 @@ router.get('/:id', function(req, res, next){
 });
 
 //get by category
-router.get('/:category', function(req, res, next){
-	Products.getByCategory(req.params.category) //look up category by name
-	.then(function(products){
-		res.json(products);
-	}, next);
-});
+//OM: this route will never be hit, category filtering will occur on the client
+// router.get('/:category', function(req, res, next){
+// 	Products.getByCategory(req.params.category) //look up category by name
+// 	.then(function(products){
+// 		res.json(products);
+// 	}, next);
+// });
 
 //add a new product
 router.post('/', function(req, res, next){
