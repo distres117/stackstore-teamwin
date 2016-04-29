@@ -7,7 +7,12 @@ app.factory('UserFactory', function($http){
 	};
 
 	return {
-		getOne: function(id){
+		
+		fetchAll: function(){
+			return getPromiseForData($http.get('/api/users'));
+		},
+
+		fetchOne: function(id){
 			return getPromiseForData($http.get('/api/users/' + id));
 		},
 
